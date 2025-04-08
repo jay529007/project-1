@@ -75,10 +75,6 @@ const EditJob = () => {
     }
   };
 
-  console.log(salary);
-  console.log("Current salary state: [" + salary + "]");
-
-
   if (loading) return <p className="text-center">Loading...</p>;
 
   return (
