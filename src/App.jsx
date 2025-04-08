@@ -6,6 +6,8 @@ import { MainLayout } from "./components/MainLayout";
 import { Notfound } from "./pages/notfound";
 import { Jobpage } from "./pages/joblisting/jobpage";
 import { Addjob } from "./pages/add-job";
+import  Editjob  from "./pages/joblisting/editjob";
+// import{tostify} from 'react-toastify';
 
 // import { Addjob } from "./pages/add-job";
 
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
       {
         path:"/add-job",
         element:<Addjob/>,
+      },
+      {
+        path:"/editjob/:id",
+        element:<Editjob/>,
       },
       {
         path: '*',
