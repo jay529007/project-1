@@ -2,21 +2,20 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Addjob = () => {
-  const [type, setType] = useState("Full-Time");
+  const [type, setType] = useState("Select Job");
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState('');
-  const [salary, setSalary] = useState('Under $50K');
-  const [location, setLocation] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [companyDescription, setCompanyDescription] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
-  const [contactPhone, setContactPhone] = useState('');
+  const [description, setDescription] = useState("");
+  const [salary, setSalary] = useState("Select salary");
+  const [location, setLocation] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [companyDescription, setCompanyDescription] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
   const navigate = useNavigate();
-
 
   const submitForm = async (e) => {
     e.preventDefault();
-  
+
     const jobData = {
       type,
       title,
@@ -30,7 +29,7 @@ export const Addjob = () => {
         contactPhone,
       },
     };
-  
+
     try {
       const res = await fetch("/api/jobs", {
         method: "POST",
@@ -43,7 +42,7 @@ export const Addjob = () => {
       if (!res.ok) {
         throw new Error("Something went wrong");
       }
-  
+
       const data = await res.json();
       console.log("Job added successfully", data);
       resetForm();
@@ -52,20 +51,18 @@ export const Addjob = () => {
       console.error("Error adding job:", error);
     }
   };
-  
-  
+
   const resetForm = () => {
-    setType("Full-Time");
+    setType("Select Job");
     setTitle("");
     setDescription("");
-    setSalary("Under $50K");
+    setSalary("Select salary");
     setLocation("");
     setCompanyName("");
     setCompanyDescription("");
     setContactEmail("");
     setContactPhone("");
   };
-  
 
   return (
     <>
@@ -92,6 +89,7 @@ export const Addjob = () => {
                   value={type}
                   onChange={(e) => setType(e.target.value)}
                 >
+                  <option hidden value="default">Select Job</option>
                   <option value="Full-Time">Full-Time</option>
                   <option value="Part-Time">Part-Time</option>
                   <option value="Remote">Remote</option>
@@ -147,6 +145,7 @@ export const Addjob = () => {
                   value={salary}
                   onChange={(e) => setSalary(e.target.value)}
                 >
+                  <option hidden value="">Select salary</option>
                   <option value="Under $50K">Under $50K</option>
                   <option value="$50K - 60K">$50K - $60K</option>
                   <option value="$60K - 70K">$60K - $70K</option>

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { VscLoading } from "react-icons/vsc";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 import { toast } from "react-toastify";
 
@@ -97,8 +98,8 @@ export const Jobpage = () => {
                   {job?.title || "Not Available"}
                 </h1>
                 <div className="text-gray-500 mb-4 flex align-middle justify-center md:justify-start">
-                  <i className="fa-solid fa-location-dot text-lg text-orange-700 mr-2"></i>
                   <p className="text-orange-700">
+                    <FaMapMarkerAlt className="inline text-lg mb-1 mr-0.5" />
                     {job?.location || "Not Available"}
                   </p>
                 </div>

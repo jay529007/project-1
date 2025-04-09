@@ -84,7 +84,7 @@ const EditJob = () => {
           <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
             <form onSubmit={handleSubmit}>
               <h2 className="text-3xl text-center font-semibold mb-6">
-                Update Data
+                Update Info
               </h2>
 
               <div className="mb-4">
@@ -102,6 +102,7 @@ const EditJob = () => {
                   className="border rounded w-full py-2 px-3"
                   required
                 >
+                  <option disabled value="">Select Job</option>
                   <option value="Full-Time">Full-Time</option>
                   <option value="Part-Time">Part-Time</option>
                   <option value="Remote">Remote</option>
@@ -156,8 +157,9 @@ const EditJob = () => {
                   onChange={(e) => setSalary(e.target.value)}
                   className="border rounded w-full py-2 px-3"
                   required
-                > K 
-                  <option value="">Select salary</option>
+                >
+                  {" "}
+                  K<option disabled value="">Select salary</option>
                   <option value="Under $50K">Under $50K</option>
                   <option value="$50K - $60K">$50K - $60K</option>
                   <option value="$60K - $70K">$60K - $70K</option>
